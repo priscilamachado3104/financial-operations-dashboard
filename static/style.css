@@ -1,0 +1,191 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #fdf7f9;
+    color: #3f2936;
+}
+
+header {
+    background-color: #8b5e7a;
+    color: white;
+    padding: 25px 40px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+header p {
+    margin: 6px 0 0;
+    color: #f8e9f0;
+}
+
+main {
+    padding: 35px 40px;
+}
+
+.dashboard-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid #f0dfe7;
+    margin-bottom: 25px;
+}
+
+.dashboard-card h2 {
+    margin-top: 0;
+    color: #8b5e7a;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th {
+    background-color: #f7e8ef;
+    color: #6d3f5b;
+    text-align: left;
+    padding: 12px;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #f1e5ea;
+}
+
+tr:hover {
+    background-color: #fdf3f7;
+}
+
+.customer-id {
+    font-weight: bold;
+    color: #a05278;
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.status-completed {
+    background-color: #e8f5ee;
+    color: #2f7d52;
+}
+
+.status-pending {
+    background-color: #fff4df;
+    color: #a66a00;
+}
+
+.status-failed {
+    background-color: #fbe7eb;
+    color: #a33a50;
+}
+
+.validation-result {
+    background-color: #f7e8ef;
+    border: 1px solid #e4c7d5;
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-top: 15px;
+    color: #6d3f5b;
+    font-size: 13px;
+}
+
+.validation-result strong {
+    color: #8b5e7a;
+    font-size: 14px;
+}
+
+.validation-result p {
+    margin: 5px 0 0;
+    font-size: 13px;
+}
+
+form {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+input,
+select {
+    padding: 9px 12px;
+    border: 1px solid #e4c7d5;
+    border-radius: 8px;
+    background-color: #fffafb;
+    color: #3f2936;
+    font-size: 14px;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #8b5e7a;
+}
+
+button {
+    padding: 9px 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #8b5e7a;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #6d3f5b;
+}
+
+.status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.status-completed {
+    background-color: #e8f5ee;
+    color: #2f7d52;
+}
+
+.status-pending {
+    background-color: #fff4df;
+    color: #a66a00;
+}
+
+.status-failed {
+    background-color: #fbe7eb;
+    color: #a33a50;
+}
+
+.investigation-status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.investigation-not-investigated {
+    background-color: #f1edf0;
+    color: #6d5a66;
+}
+
+.investigation-under-review {
+    background-color: #fff4df;
+    color: #a66a00;
+}
+
+.investigation-resolved {
+    background-color: #e8f5ee;
+    color: #2f7d52;
+}
