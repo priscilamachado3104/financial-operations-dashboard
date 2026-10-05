@@ -94,7 +94,7 @@ class TestTransactionValidation(unittest.TestCase):
         result = search_transaction(999)
 
         self.assertIsNone(result)
-        
+
 
     @patch("app.get_connection")
     def test_update_investigation_status(self, mock_connection):
@@ -111,6 +111,25 @@ class TestTransactionValidation(unittest.TestCase):
         WHERE transaction_id = %s
         """,
             ("Resolved", 5)
+        )
+
+        mock_connection.return_value.commit.assert_called_once()
+
+    @patch("app.get_connection")
+    def test_add_transaction(self, mock_connection):
+        mock_cursor = mock_connection.return_value.cursor.return_value
+
+        from app import add_transaction
+
+        add_transaction(1, 100.00, "Deposit", "Completed")
+
+        mock_cursor.execute.assert_called_once_with(
+            """
+        INSERT INTO transactions
+        (account_id, amount, transaction_type, status)
+        VALUES (%s, %s, %s, %s)
+        """,
+            (1, 100.00, "Deposit", "Completed")
         )
 
         mock_connection.return_value.commit.assert_called_once()

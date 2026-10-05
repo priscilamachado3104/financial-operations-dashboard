@@ -61,6 +61,10 @@ The tests verify:
 - Transactions with amounts of $0 or less are rejected
 - Transactions with invalid statuses are rejected
 - Transactions that do not exist are handled correctly
+- Existing transactions can be found by ID
+- Missing transactions return no result
+- Investigation statuses can be updated and saved
+- New transactions can be added with the correct information
 
 Run the tests with:
 
