@@ -1,15 +1,17 @@
 from flask import Flask, render_template, request, redirect  # Imports Flask and the function used to render HTML templates
+import os
 import psycopg
 
 app = Flask(__name__)
 
 def get_connection():
     return psycopg.connect(
-    dbname="financial_operations",
-    user="priscilamachado",
-    host="localhost",
-    port=5432
-)
+        dbname=os.getenv("DB_NAME", "financial_operations"),
+        user=os.getenv("DB_USER", "priscilamachado"),
+        password=os.getenv("DB_PASSWORD"),
+        host=os.getenv("DB_HOST", "localhost"),
+        port=os.getenv("DB_PORT", "5432")
+    )
 
 def get_customers():
     connection = get_connection() #opens a connection to the financial-operations database
