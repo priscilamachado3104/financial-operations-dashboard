@@ -47,4 +47,7 @@ PostgreSQL Database
 
 The dashboard provides a centralized interface for viewing customers, accounts, and financial transactions, as well as searching, filtering, validating, and investigating transaction records.
 
-![Financial Operations Dashboard](dashboard.png)
+![Financial Operations Dashboard](frontdashboard.png) 
+![Transaction Dashboard](dashboard.png)
+
+
