@@ -39,3 +39,9 @@ Web Interface
 Flask Application
      |
 PostgreSQL Database
+
+## Dashboard
+
+The dashboard provides a centralized interface for viewing customers, accounts, and financial transactions, as well as searching, filtering, validating, and investigating transaction records.
+
+![Financial Operations Dashboard](dashboard.png)
