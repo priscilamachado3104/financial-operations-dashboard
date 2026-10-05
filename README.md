@@ -51,3 +51,18 @@ The dashboard provides a centralized interface for viewing customers, accounts, 
 ![Transaction Dashboard](dashboard.png)
 
 
+## Automated Testing
+
+The project includes automated unit tests for transaction validation using Python's `unittest` framework.
+
+The tests verify:
+
+- Valid transactions are accepted
+- Transactions with amounts of $0 or less are rejected
+- Transactions with invalid statuses are rejected
+- Transactions that do not exist are handled correctly
+
+Run the tests with:
+
+```bash
+python -m unittest discover -s tests
