@@ -17,13 +17,14 @@ def get_connection():
     )
 
 def get_customers():
-    connection = get_connection() #opens a connection to the financial-operations database
-    cursor = connection.cursor() #creates a cursor to execute SQL commands
-    cursor.execute("SELECT * FROM customers") # executes a SQL query that gets all customers
-    customers = cursor.fetchall() #retrieves all the customer rows from the database
-    cursor.close() 
+    connection = get_connection()  # opens a connection to the financial-operations database
+    cursor = connection.cursor()  # creates a cursor to execute SQL commands
+    cursor.execute("SELECT * FROM customers")  # executes a SQL query that gets all customers
+    customers = cursor.fetchall()  # retrieves all the customer rows from the database
+    cursor.close()
     connection.close()
     return customers
+
 print(get_customers())
 
 def get_accounts():
@@ -52,7 +53,6 @@ def get_transactions():
     connection.close()
 
     return formatted_transactions
-
 
 
 def search_transaction(transaction_id):
@@ -131,6 +131,10 @@ def add_transaction(account_id, amount, transaction_type, status):
     connection.close()
 
 
+@app.route("/")
+def home():
+    return redirect("/customers")
+
 
 @app.route("/customers")  # Creates a URL route called /customers
 def customers():  # Defines the function that runs when someone visits /customers
@@ -146,7 +150,6 @@ def customers():  # Defines the function that runs when someone visits /customer
 
     if transaction_id:
         transaction = search_transaction(transaction_id)
-        
         if transaction:
             transactions = [transaction]
             search_result = f"Transaction #{transaction_id} found."
@@ -160,15 +163,22 @@ def customers():  # Defines the function that runs when someone visits /customer
             for transaction in transactions
             if transaction[5] == status
         ]
-        
+
     if investigation_status:
         transactions = [
             transaction
             for transaction in transactions
             if transaction[6] == investigation_status
         ]
-            
-    return render_template("index.html", customers=customers, accounts=accounts, transactions=transactions, validation_result=None, search_result=search_result)  # Sends the financial data to the HTML template
+
+    return render_template(
+        "index.html",
+        customers=customers,
+        accounts=accounts,
+        transactions=transactions,
+        validation_result=None,
+        search_result=search_result
+    )  # Sends the financial data to the HTML template
 
 
 @app.route("/validate")
@@ -239,6 +249,6 @@ def add_transaction_route():
         )
 
     return redirect("/customers")
-    
+
 if __name__ == "__main__":  # Checks whether this file is being run directly
     app.run()  # Starts the Flask development server
