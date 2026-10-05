@@ -134,6 +134,28 @@ class TestTransactionValidation(unittest.TestCase):
 
         mock_connection.return_value.commit.assert_called_once()
 
+    @patch("app.get_transactions")
+    @patch("app.get_accounts")
+    @patch("app.get_customers")
+    def test_customers_route(
+        self,
+        mock_customers,
+        mock_accounts,
+        mock_transactions
+    ):
+        mock_customers.return_value = []
+        mock_accounts.return_value = []
+        mock_transactions.return_value = []
+
+        from app import app
+
+        client = app.test_client()
+
+        response = client.get("/customers")
+
+        self.assertEqual(response.status_code, 200)
+
+
 
 if __name__ == "__main__":
     unittest.main()
