@@ -241,4 +241,4 @@ def add_transaction_route():
     return redirect("/customers")
     
 if __name__ == "__main__":  # Checks whether this file is being run directly
-    app.run(debug=True)  # Starts the Flask development server
+    app.run()  # Starts the Flask development server
