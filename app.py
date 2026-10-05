@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, redirect  # Imports Flask and the function used to render HTML templates
 import os
 import psycopg
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 
