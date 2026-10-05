@@ -65,6 +65,7 @@ The tests verify:
 - Missing transactions return no result
 - Investigation statuses can be updated and saved
 - New transactions can be added with the correct information
+- The `/customers` dashboard route returns a successful response
 
 Run the tests with:
 
