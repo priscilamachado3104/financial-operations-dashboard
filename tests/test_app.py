@@ -63,5 +63,58 @@ class TestTransactionValidation(unittest.TestCase):
         self.assertEqual(result, "Transaction not found.")
 
 
+    @patch("app.get_connection")
+    def test_search_existing_transaction(self, mock_connection):
+        mock_cursor = mock_connection.return_value.cursor.return_value
+        mock_cursor.fetchone.return_value = (
+            1,
+            1,
+            250.00,
+            "Deposit",
+            None,
+            "Completed",
+            "Not investigated"
+        )
+
+        from app import search_transaction
+
+        result = search_transaction(1)
+
+        self.assertEqual(result[0], 1)
+        self.assertEqual(result[2], 250.00)
+
+        
+    @patch("app.get_connection")
+    def test_search_missing_transaction(self, mock_connection):
+        mock_cursor = mock_connection.return_value.cursor.return_value
+        mock_cursor.fetchone.return_value = None
+
+        from app import search_transaction
+
+        result = search_transaction(999)
+
+        self.assertIsNone(result)
+        
+
+    @patch("app.get_connection")
+    def test_update_investigation_status(self, mock_connection):
+        mock_cursor = mock_connection.return_value.cursor.return_value
+
+        from app import update_investigation_status
+
+        update_investigation_status(5, "Resolved")
+
+        mock_cursor.execute.assert_called_once_with(
+            """
+        UPDATE transactions
+        SET investigation_status = %s
+        WHERE transaction_id = %s
+        """,
+            ("Resolved", 5)
+        )
+
+        mock_connection.return_value.commit.assert_called_once()
+
+
 if __name__ == "__main__":
     unittest.main()
