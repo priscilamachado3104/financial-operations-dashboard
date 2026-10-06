@@ -2,6 +2,15 @@
 
 A web-based financial operations system designed to help operations analysts view, search, validate, and investigate financial transactions.
 
+## Live Demo
+
+[View the Live Dashboard](https://financial-operations-dashboard-env.eba-t5pr4jtm.us-east-2.elasticbeanstalk.com)
+
+## GitHub Repository
+
+[View the Source Code](https://github.com/priscilamachado3104/financial-operations-dashboard)
+
+
 ## Project Overview
 
 This project simulates a financial operations environment where analysts need to review customer accounts and transactions, identify potential issues, and update investigation statuses.
