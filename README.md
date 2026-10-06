@@ -4,7 +4,7 @@ A web-based financial operations system designed to help operations analysts vie
 
 ## Live Demo
 
-[View the Live Dashboard](https://financial-operations-dashboard-env.eba-t5pr4jtm.us-east-2.elasticbeanstalk.com)
+[View the Live Dashboard](http://financial-operations-dashboard-env.eba-t5pr4jtm.us-east-2.elasticbeanstalk.com/)
 
 ## GitHub Repository
 
